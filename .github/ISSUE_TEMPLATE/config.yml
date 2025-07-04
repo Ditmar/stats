@@ -8,3 +8,6 @@ contact_links:
   - name: GitHub Security Bug Bounty
     url: https://bounty.github.com/
     about: Please report security vulnerabilities here.
+  - name: GitHub Issue Templates
+    url: ./ISSUE_TEMPLATE/1-feature-request.yml
+    about: Please use the issue templates provided in this repository.
