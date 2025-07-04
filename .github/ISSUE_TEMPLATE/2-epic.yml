@@ -1,204 +1,64 @@
-name: 📌 Feature Task
-description: Issue template for new features, configurations, or components
-title: '📌 [Type] <Issue Title>'
-labels: ['type:setup', 'type:component', 'effort:2', 'status:todo']
-# assignees: ''
-
+name: Bug Report
+description: File a bug report.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+projects: ["octo-org/1", "octo-org/44"]
+assignees:
+  - octocat
 body:
   - type: markdown
     attributes:
       value: |
-        ## 🚀 Feature Task Template
-        Gracias por contribuir con una nueva funcionalidad o componente. Completa la siguiente información para que el equipo comprenda y priorice correctamente esta tarea.
-
-  ## 🧭 Contexto General
-
-  - type: dropdown
-    id: task_type
-    attributes:
-      label: "Tipo de Tarea"
-      description: "Selecciona la categoría que mejor describe esta tarea"
-      options:
-        - Component
-        - Configuration
-        - Feature
-        - Setup
-        - Documentation
-        - Refactoring
-        - Performance
-        - Testing
-    validations:
-      required: true
-
-  - type: dropdown
-    id: priority
-    attributes:
-      label: "Nivel de Prioridad"
-      description: "¿Qué tan urgente es esta tarea?"
-      options:
-        - 🔴 Critical
-        - 🟠 High
-        - 🟡 Medium
-        - 🟢 Low
-      default: 2
-    validations:
-      required: true
-
-  - type: dropdown
-    id: effort
-    attributes:
-      label: "Esfuerzo Estimado"
-      description: "¿Cuánto tiempo se estima que tomará esta tarea?"
-      options:
-        - "1 - Bajo (1-2 horas)"
-        - "2 - Medio (3-8 horas)"
-        - "3 - Alto (1-2 días)"
-        - "4 - Muy Alto (3+ días)"
-      default: 1
-    validations:
-      required: true
-
+        Thanks for taking the time to fill out this bug report!
   - type: input
-    id: epic_link
+    id: contact
     attributes:
-      label: "Epic o Issue Padre"
-      description: "Enlace al epic o issue relacionado, si aplica"
-      placeholder: "#123 o https://github.com/user/repo/issues/123"
-
-  ## 📖 Descripción
-
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
   - type: textarea
-    id: description
+    id: what-happened
     attributes:
-      label: "📝 Descripción General"
-      description: "Describe claramente la tarea, el problema que resuelve y qué se espera."
-      placeholder: |
-        ## Problem Statement
-        [Describe el problema o necesidad]
-
-        ## Expected Outcome
-        [¿Qué se espera lograr?]
-
-        ## Additional Context
-        [Información adicional útil]
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value: "A bug happened!"
     validations:
       required: true
-
-  - type: textarea
-    id: requirements
+  - type: dropdown
+    id: version
     attributes:
-      label: "📋 Requisitos"
-      description: "Lista los requerimientos específicos que debe cumplir esta tarea"
-      placeholder: |
-        - [ ] Debe ser responsivo
-        - [ ] Usar la API de autenticación
-        - [ ] Incluir pruebas unitarias
-
-  - type: textarea
-    id: subtasks
-    attributes:
-      label: "✅ Subtareas"
-      description: "Divide el trabajo en subtareas manejables"
-      value: |
-        ## Desarrollo
-        - [ ] Setup inicial
-        - [ ] Implementar lógica principal
-        - [ ] Manejo de errores
-
-        ## Pruebas
-        - [ ] Pruebas unitarias
-        - [ ] Pruebas de integración (si aplica)
-
-        ## Documentación
-        - [ ] Actualizar README
-        - [ ] Documentar en Storybook (si es un componente)
+      label: Version
+      description: What version of our software are you running?
+      options:
+        - 1.0.2 (Default)
+        - 1.0.3 (Edge)
+      default: 0
     validations:
       required: true
-
-  ## 🧪 Criterios de Aceptación
-
-  - type: textarea
-    id: acceptance
-    attributes:
-      label: "🎯 Criterios de Aceptación"
-      description: "Condiciones que deben cumplirse para cerrar esta tarea"
-      value: |
-        ## Funcionales
-        - [ ] Funciona como se espera
-        - [ ] Se manejan los casos borde
-        - [ ] Se gestionan errores correctamente
-
-        ## Calidad
-        - [ ] Pasa todas las pruebas
-        - [ ] Cumple estándares de código
-        - [ ] Sin errores de linting
-
-        ## Documentación
-        - [ ] Documentación técnica completa
-        - [ ] Historias de Storybook si aplica
-    validations:
-      required: true
-
-  ## 🔗 Recursos y Dependencias
-
-  - type: textarea
-    id: resources
-    attributes:
-      label: "📚 Recursos y Referencias"
-      description: "Links útiles como diseños, documentación o issues relacionados"
-      placeholder: |
-        - Mockup: [link]
-        - API Docs: [link]
-        - Issues relacionados: #123, #456
-
-  - type: textarea
-    id: dependencies
-    attributes:
-      label: "🔗 Dependencias o Bloqueos"
-      description: "¿Esta tarea depende de otra? ¿Hay algo que la bloquee?"
-      placeholder: |
-        - Bloqueado por: #321
-        - Depende de: #654
-        - Externo: Aprobación de diseño
-
-  ## 🌍 Compatibilidad y Consideraciones
-
   - type: dropdown
     id: browsers
     attributes:
-      label: "🌐 Compatibilidad con Navegadores"
-      description: "¿Qué navegadores deben estar soportados?"
+      label: What browsers are you seeing the problem on?
       multiple: true
       options:
-        - Chrome
         - Firefox
+        - Chrome
         - Safari
-        - Edge
-        - Mobile Safari
-        - Mobile Chrome
-        - Todos los navegadores modernos
-
-  - type: checkboxes
-    id: additional_considerations
-    attributes:
-      label: "🔍 Consideraciones Adicionales"
-      description: "Marca las que apliquen para esta tarea"
-      options:
-        - label: "Requiere revisión de diseño"
-        - label: "Afecta el rendimiento"
-        - label: "Necesita validación de accesibilidad"
-        - label: "Afecta SEO"
-        - label: "Necesita revisión de seguridad"
-        - label: "Afecta la experiencia móvil"
-        - label: "Requiere cambios en base de datos"
-        - label: "Impacta la API"
-
+        - Microsoft Edge
   - type: textarea
-    id: notes
+    id: logs
     attributes:
-      label: "📓 Notas Adicionales"
-      description: "Información técnica, limitaciones o sugerencias a futuro"
-      placeholder: |
-        - Notas de implementación
-        - Consideraciones técnicas
-        - Deuda técnica
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com). 
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

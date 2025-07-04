@@ -1,44 +1,204 @@
- name: 📌 Feature Task
- description: Issue for a new feature, configuration, or component
- title: '### 📌 [Type] <Issue Title>'
- labels: ['type:setup', 'type:component', 'effort:2']
- body:
-   - type: input
-     id: effort
-     attributes:
-       label: "Effort Estimate (1: Low, 2: Medium, 3: High)"
-       placeholder: "2"
-     validations:
-       required: true
+name: 📌 Feature Task
+description: Issue template for new features, configurations, or components
+title: '📌 [Type] <Issue Title>'
+labels: ['type:setup', 'type:component', 'effort:2', 'status:todo']
+# assignees: ''
 
-   - type: textarea
-     id: description
-     attributes:
-       label: Description
-       description: Describe clearly what this task is about and the expected outcome.
-       placeholder: Describe the purpose and scope of this issue
-     validations:
-       required: true
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🚀 Feature Task Template
+        Gracias por contribuir con una nueva funcionalidad o componente. Completa la siguiente información para que el equipo comprenda y priorice correctamente esta tarea.
 
-   - type: textarea
-     id: subtasks
-     attributes:
-       label: Subtasks
-       description: Add checkboxes for subtasks to complete
-       placeholder: |
-         - [ ] Setup initial structure
-         - [ ] Write implementation
-         - [ ] Add tests (if needed)
-         - [ ] Document usage (Storybook or MDX)
-     validations:
-       required: true
+  ## 🧭 Contexto General
 
-   - type: textarea
-     id: acceptance
-     attributes:
-       label: Acceptance Criteria
-       description: Define what conditions must be met to close this issue.
-       placeholder: |
-         - [ ] The component renders as expected
-         - [ ] Linting and formatting pass
-         - [ ] Visual consistency verified
+  - type: dropdown
+    id: task_type
+    attributes:
+      label: "Tipo de Tarea"
+      description: "Selecciona la categoría que mejor describe esta tarea"
+      options:
+        - Component
+        - Configuration
+        - Feature
+        - Setup
+        - Documentation
+        - Refactoring
+        - Performance
+        - Testing
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Nivel de Prioridad"
+      description: "¿Qué tan urgente es esta tarea?"
+      options:
+        - 🔴 Critical
+        - 🟠 High
+        - 🟡 Medium
+        - 🟢 Low
+      default: 2
+    validations:
+      required: true
+
+  - type: dropdown
+    id: effort
+    attributes:
+      label: "Esfuerzo Estimado"
+      description: "¿Cuánto tiempo se estima que tomará esta tarea?"
+      options:
+        - "1 - Bajo (1-2 horas)"
+        - "2 - Medio (3-8 horas)"
+        - "3 - Alto (1-2 días)"
+        - "4 - Muy Alto (3+ días)"
+      default: 1
+    validations:
+      required: true
+
+  - type: input
+    id: epic_link
+    attributes:
+      label: "Epic o Issue Padre"
+      description: "Enlace al epic o issue relacionado, si aplica"
+      placeholder: "#123 o https://github.com/user/repo/issues/123"
+
+  ## 📖 Descripción
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "📝 Descripción General"
+      description: "Describe claramente la tarea, el problema que resuelve y qué se espera."
+      placeholder: |
+        ## Problem Statement
+        [Describe el problema o necesidad]
+
+        ## Expected Outcome
+        [¿Qué se espera lograr?]
+
+        ## Additional Context
+        [Información adicional útil]
+    validations:
+      required: true
+
+  - type: textarea
+    id: requirements
+    attributes:
+      label: "📋 Requisitos"
+      description: "Lista los requerimientos específicos que debe cumplir esta tarea"
+      placeholder: |
+        - [ ] Debe ser responsivo
+        - [ ] Usar la API de autenticación
+        - [ ] Incluir pruebas unitarias
+
+  - type: textarea
+    id: subtasks
+    attributes:
+      label: "✅ Subtareas"
+      description: "Divide el trabajo en subtareas manejables"
+      value: |
+        ## Desarrollo
+        - [ ] Setup inicial
+        - [ ] Implementar lógica principal
+        - [ ] Manejo de errores
+
+        ## Pruebas
+        - [ ] Pruebas unitarias
+        - [ ] Pruebas de integración (si aplica)
+
+        ## Documentación
+        - [ ] Actualizar README
+        - [ ] Documentar en Storybook (si es un componente)
+    validations:
+      required: true
+
+  ## 🧪 Criterios de Aceptación
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: "🎯 Criterios de Aceptación"
+      description: "Condiciones que deben cumplirse para cerrar esta tarea"
+      value: |
+        ## Funcionales
+        - [ ] Funciona como se espera
+        - [ ] Se manejan los casos borde
+        - [ ] Se gestionan errores correctamente
+
+        ## Calidad
+        - [ ] Pasa todas las pruebas
+        - [ ] Cumple estándares de código
+        - [ ] Sin errores de linting
+
+        ## Documentación
+        - [ ] Documentación técnica completa
+        - [ ] Historias de Storybook si aplica
+    validations:
+      required: true
+
+  ## 🔗 Recursos y Dependencias
+
+  - type: textarea
+    id: resources
+    attributes:
+      label: "📚 Recursos y Referencias"
+      description: "Links útiles como diseños, documentación o issues relacionados"
+      placeholder: |
+        - Mockup: [link]
+        - API Docs: [link]
+        - Issues relacionados: #123, #456
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: "🔗 Dependencias o Bloqueos"
+      description: "¿Esta tarea depende de otra? ¿Hay algo que la bloquee?"
+      placeholder: |
+        - Bloqueado por: #321
+        - Depende de: #654
+        - Externo: Aprobación de diseño
+
+  ## 🌍 Compatibilidad y Consideraciones
+
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: "🌐 Compatibilidad con Navegadores"
+      description: "¿Qué navegadores deben estar soportados?"
+      multiple: true
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Mobile Safari
+        - Mobile Chrome
+        - Todos los navegadores modernos
+
+  - type: checkboxes
+    id: additional_considerations
+    attributes:
+      label: "🔍 Consideraciones Adicionales"
+      description: "Marca las que apliquen para esta tarea"
+      options:
+        - label: "Requiere revisión de diseño"
+        - label: "Afecta el rendimiento"
+        - label: "Necesita validación de accesibilidad"
+        - label: "Afecta SEO"
+        - label: "Necesita revisión de seguridad"
+        - label: "Afecta la experiencia móvil"
+        - label: "Requiere cambios en base de datos"
+        - label: "Impacta la API"
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: "📓 Notas Adicionales"
+      description: "Información técnica, limitaciones o sugerencias a futuro"
+      placeholder: |
+        - Notas de implementación
+        - Consideraciones técnicas
+        - Deuda técnica
