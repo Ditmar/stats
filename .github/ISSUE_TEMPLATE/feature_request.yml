@@ -1,44 +1,274 @@
+# name: 📌 Feature Task
+# description: Issue for a new feature, configuration, or component
+# title: '### 📌 [Type] <Issue Title>'
+# labels: ['type:setup', 'type:component', 'effort:2']
+# body:
+#   - type: input
+#     id: effort
+#     attributes:
+#       label: "Effort Estimate (1: Low, 2: Medium, 3: High)"
+#       placeholder: "2"
+#     validations:
+#       required: true
+
+#   - type: textarea
+#     id: description
+#     attributes:
+#       label: Description
+#       description: Describe clearly what this task is about and the expected outcome.
+#       placeholder: Describe the purpose and scope of this issue
+#     validations:
+#       required: true
+
+#   - type: textarea
+#     id: subtasks
+#     attributes:
+#       label: Subtasks
+#       description: Add checkboxes for subtasks to complete
+#       placeholder: |
+#         - [ ] Setup initial structure
+#         - [ ] Write implementation
+#         - [ ] Add tests (if needed)
+#         - [ ] Document usage (Storybook or MDX)
+#     validations:
+#       required: true
+
+#   - type: textarea
+#     id: acceptance
+#     attributes:
+#       label: Acceptance Criteria
+#       description: Define what conditions must be met to close this issue.
+#       placeholder: |
+#         - [ ] The component renders as expected
+#         - [ ] Linting and formatting pass
+#         - [ ] Visual consistency verified
 name: 📌 Feature Task
-description: Issue for a new feature, configuration, or component
+description: Issue template for new features, configurations, or components
 title: '### 📌 [Type] <Issue Title>'
-labels: ['type:setup', 'type:component', 'effort:2']
+labels: ['type:setup', 'type:component', 'effort:2', 'status:todo']
+# assignees: ""
 body:
-  - type: input
-    id: effort
+  - type: markdown
     attributes:
-      label: "Effort Estimate (1: Low, 2: Medium, 3: High)"
-      placeholder: "2"
+      value: |
+        ## 🚀 Feature Task
+        Thank you for creating a new feature task! Please fill out the information below to help the team understand and prioritize this work.
+
+  - type: dropdown
+    id: task_type
+    attributes:
+      label: "Task Type"
+      description: "What type of task is this?"
+      options:
+        - Component
+        - Configuration
+        - Feature
+        - Setup
+        - Documentation
+        - Refactoring
+        - Performance
+        - Testing
     validations:
       required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Priority Level"
+      description: "How urgent is this task?"
+      options:
+        - 🔴 Critical
+        - 🟠 High
+        - 🟡 Medium
+        - 🟢 Low
+      default: 2
+    validations:
+      required: true
+
+  - type: dropdown
+    id: effort
+    attributes:
+      label: "Effort Estimate"
+      description: "How much effort will this task require?"
+      options:
+        - "1 - Low (1-2 hours)"
+        - "2 - Medium (3-8 hours)"
+        - "3 - High (1-2 days)"
+        - "4 - Very High (3+ days)"
+      default: 1
+    validations:
+      required: true
+
+  - type: input
+    id: epic_link
+    attributes:
+      label: "Epic/Parent Issue"
+      description: "Link to the parent epic or related issue (if applicable)"
+      placeholder: "#123 or https://github.com/user/repo/issues/123"
+    validations:
+      required: false
 
   - type: textarea
     id: description
     attributes:
-      label: Description
-      description: Describe clearly what this task is about and the expected outcome.
-      placeholder: Describe the purpose and scope of this issue
+      label: "📝 Description"
+      description: "Describe clearly what this task is about and the expected outcome."
+      placeholder: |
+        Provide a detailed description of what needs to be done:
+        - What problem does this solve?
+        - What is the expected outcome?
+        - Any specific requirements or constraints?
+      value: |
+        ## Problem Statement
+        [Describe the problem or need]
+
+        ## Expected Outcome
+        [What should be accomplished]
+
+        ## Additional Context
+        [Any relevant background information]
     validations:
       required: true
 
   - type: textarea
+    id: requirements
+    attributes:
+      label: "📋 Requirements"
+      description: "List the specific requirements for this task"
+      placeholder: |
+        - [ ] Requirement 1
+        - [ ] Requirement 2
+        - [ ] Requirement 3
+    validations:
+      required: false
+
+  - type: textarea
     id: subtasks
     attributes:
-      label: Subtasks
-      description: Add checkboxes for subtasks to complete
+      label: "✅ Subtasks"
+      description: "Break down the work into actionable subtasks"
       placeholder: |
+        - [ ] Research and planning
         - [ ] Setup initial structure
-        - [ ] Write implementation
-        - [ ] Add tests (if needed)
-        - [ ] Document usage (Storybook or MDX)
+        - [ ] Implement core functionality
+        - [ ] Add unit tests
+        - [ ] Add integration tests (if needed)
+        - [ ] Update documentation
+        - [ ] Code review
+        - [ ] QA testing
+      value: |
+        ## Development Tasks
+        - [ ] Setup initial structure
+        - [ ] Implement core functionality
+        - [ ] Add error handling
+
+        ## Testing Tasks
+        - [ ] Write unit tests
+        - [ ] Add integration tests (if needed)
+        - [ ] Manual testing
+
+        ## Documentation Tasks
+        - [ ] Update README
+        - [ ] Add code comments
+        - [ ] Create/update Storybook stories (for components)
     validations:
       required: true
-      
+
   - type: textarea
     id: acceptance
     attributes:
-      label: Acceptance Criteria
-      description: Define what conditions must be met to close this issue.
+      label: "🎯 Acceptance Criteria"
+      description: "Define what conditions must be met to close this issue"
       placeholder: |
-        - [ ] The component renders as expected
-        - [ ] Linting and formatting pass
-        - [ ] Visual consistency verified
+        - [ ] All functionality works as expected
+        - [ ] Code follows project standards
+        - [ ] Tests pass
+        - [ ] Documentation is updated
+      value: |
+        ## Functional Criteria
+        - [ ] The feature/component works as specified
+        - [ ] All edge cases are handled
+        - [ ] Error states are properly managed
+
+        ## Quality Criteria
+        - [ ] Code follows project coding standards
+        - [ ] All tests pass (unit, integration, e2e)
+        - [ ] No linting errors
+        - [ ] Performance requirements met
+
+        ## Documentation Criteria
+        - [ ] Code is properly documented
+        - [ ] User documentation updated (if needed)
+        - [ ] Storybook stories added (for components)
+    validations:
+      required: true
+
+  - type: textarea
+    id: resources
+    attributes:
+      label: "📚 Resources & References"
+      description: "Links to relevant documentation, designs, or reference materials"
+      placeholder: |
+        - Design mockups: [link]
+        - API documentation: [link]
+        - Related issues: #123, #456
+        - External references: [link]
+    validations:
+      required: false
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: "🔗 Dependencies"
+      description: "List any blockers or dependencies for this task"
+      placeholder: |
+        - Blocked by: #123 (API endpoint needs to be ready)
+        - Depends on: #456 (Base component must be implemented first)
+        - External: Design approval needed
+    validations:
+      required: false
+
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: "🌐 Browser Support"
+      description: "Which browsers need to be supported?"
+      multiple: true
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Mobile Safari
+        - Mobile Chrome
+        - All modern browsers
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: additional_considerations
+    attributes:
+      label: "🔍 Additional Considerations"
+      description: "Check all that apply"
+      options:
+        - label: "This task requires design review"
+        - label: "This task affects performance"
+        - label: "This task requires accessibility testing"
+        - label: "This task affects SEO"
+        - label: "This task requires security review"
+        - label: "This task affects mobile experience"
+        - label: "This task requires database changes"
+        - label: "This task affects API"
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: "📓 Additional Notes"
+      description: "Any other information that might be helpful"
+      placeholder: |
+        - Implementation notes
+        - Known limitations
+        - Future considerations
+        - Technical debt considerations
+    validations:
+      required: false
