@@ -1,20 +1,23 @@
 name: 📌 Feature Task
 description: Issue template for new features, configurations, or components
-title: '### 📌 [Type] <Issue Title>'
+title: '📌 [Type] <Issue Title>'
 labels: ['type:setup', 'type:component', 'effort:2', 'status:todo']
-# assignees: ""
+# assignees: ''
+
 body:
   - type: markdown
     attributes:
       value: |
-        ## 🚀 Feature Task
-        Thank you for creating a new feature task! Please fill out the information below to help the team understand and prioritize this work.
+        ## 🚀 Feature Task Template
+        Gracias por contribuir con una nueva funcionalidad o componente. Completa la siguiente información para que el equipo comprenda y priorice correctamente esta tarea.
+
+  ## 🧭 Contexto General
 
   - type: dropdown
     id: task_type
     attributes:
-      label: "Task Type"
-      description: "What type of task is this?"
+      label: "Tipo de Tarea"
+      description: "Selecciona la categoría que mejor describe esta tarea"
       options:
         - Component
         - Configuration
@@ -30,8 +33,8 @@ body:
   - type: dropdown
     id: priority
     attributes:
-      label: "Priority Level"
-      description: "How urgent is this task?"
+      label: "Nivel de Prioridad"
+      description: "¿Qué tan urgente es esta tarea?"
       options:
         - 🔴 Critical
         - 🟠 High
@@ -44,13 +47,13 @@ body:
   - type: dropdown
     id: effort
     attributes:
-      label: "Effort Estimate"
-      description: "How much effort will this task require?"
+      label: "Esfuerzo Estimado"
+      description: "¿Cuánto tiempo se estima que tomará esta tarea?"
       options:
-        - "1 - Low (1-2 hours)"
-        - "2 - Medium (3-8 hours)"
-        - "3 - High (1-2 days)"
-        - "4 - Very High (3+ days)"
+        - "1 - Bajo (1-2 horas)"
+        - "2 - Medio (3-8 horas)"
+        - "3 - Alto (1-2 días)"
+        - "4 - Muy Alto (3+ días)"
       default: 1
     validations:
       required: true
@@ -58,137 +61,113 @@ body:
   - type: input
     id: epic_link
     attributes:
-      label: "Epic/Parent Issue"
-      description: "Link to the parent epic or related issue (if applicable)"
-      placeholder: "#123 or https://github.com/user/repo/issues/123"
-    validations:
-      required: false
+      label: "Epic o Issue Padre"
+      description: "Enlace al epic o issue relacionado, si aplica"
+      placeholder: "#123 o https://github.com/user/repo/issues/123"
+
+  ## 📖 Descripción
 
   - type: textarea
     id: description
     attributes:
-      label: "📝 Description"
-      description: "Describe clearly what this task is about and the expected outcome."
+      label: "📝 Descripción General"
+      description: "Describe claramente la tarea, el problema que resuelve y qué se espera."
       placeholder: |
-        Provide a detailed description of what needs to be done:
-        - What problem does this solve?
-        - What is the expected outcome?
-        - Any specific requirements or constraints?
-      value: |
         ## Problem Statement
-        [Describe the problem or need]
+        [Describe el problema o necesidad]
 
         ## Expected Outcome
-        [What should be accomplished]
+        [¿Qué se espera lograr?]
 
         ## Additional Context
-        [Any relevant background information]
+        [Información adicional útil]
     validations:
       required: true
 
   - type: textarea
     id: requirements
     attributes:
-      label: "📋 Requirements"
-      description: "List the specific requirements for this task"
+      label: "📋 Requisitos"
+      description: "Lista los requerimientos específicos que debe cumplir esta tarea"
       placeholder: |
-        - [ ] Requirement 1
-        - [ ] Requirement 2
-        - [ ] Requirement 3
-    validations:
-      required: false
+        - [ ] Debe ser responsivo
+        - [ ] Usar la API de autenticación
+        - [ ] Incluir pruebas unitarias
 
   - type: textarea
     id: subtasks
     attributes:
-      label: "✅ Subtasks"
-      description: "Break down the work into actionable subtasks"
-      placeholder: |
-        - [ ] Research and planning
-        - [ ] Setup initial structure
-        - [ ] Implement core functionality
-        - [ ] Add unit tests
-        - [ ] Add integration tests (if needed)
-        - [ ] Update documentation
-        - [ ] Code review
-        - [ ] QA testing
+      label: "✅ Subtareas"
+      description: "Divide el trabajo en subtareas manejables"
       value: |
-        ## Development Tasks
-        - [ ] Setup initial structure
-        - [ ] Implement core functionality
-        - [ ] Add error handling
+        ## Desarrollo
+        - [ ] Setup inicial
+        - [ ] Implementar lógica principal
+        - [ ] Manejo de errores
 
-        ## Testing Tasks
-        - [ ] Write unit tests
-        - [ ] Add integration tests (if needed)
-        - [ ] Manual testing
+        ## Pruebas
+        - [ ] Pruebas unitarias
+        - [ ] Pruebas de integración (si aplica)
 
-        ## Documentation Tasks
-        - [ ] Update README
-        - [ ] Add code comments
-        - [ ] Create/update Storybook stories (for components)
+        ## Documentación
+        - [ ] Actualizar README
+        - [ ] Documentar en Storybook (si es un componente)
     validations:
       required: true
+
+  ## 🧪 Criterios de Aceptación
 
   - type: textarea
     id: acceptance
     attributes:
-      label: "🎯 Acceptance Criteria"
-      description: "Define what conditions must be met to close this issue"
-      placeholder: |
-        - [ ] All functionality works as expected
-        - [ ] Code follows project standards
-        - [ ] Tests pass
-        - [ ] Documentation is updated
+      label: "🎯 Criterios de Aceptación"
+      description: "Condiciones que deben cumplirse para cerrar esta tarea"
       value: |
-        ## Functional Criteria
-        - [ ] The feature/component works as specified
-        - [ ] All edge cases are handled
-        - [ ] Error states are properly managed
+        ## Funcionales
+        - [ ] Funciona como se espera
+        - [ ] Se manejan los casos borde
+        - [ ] Se gestionan errores correctamente
 
-        ## Quality Criteria
-        - [ ] Code follows project coding standards
-        - [ ] All tests pass (unit, integration, e2e)
-        - [ ] No linting errors
-        - [ ] Performance requirements met
+        ## Calidad
+        - [ ] Pasa todas las pruebas
+        - [ ] Cumple estándares de código
+        - [ ] Sin errores de linting
 
-        ## Documentation Criteria
-        - [ ] Code is properly documented
-        - [ ] User documentation updated (if needed)
-        - [ ] Storybook stories added (for components)
+        ## Documentación
+        - [ ] Documentación técnica completa
+        - [ ] Historias de Storybook si aplica
     validations:
       required: true
+
+  ## 🔗 Recursos y Dependencias
 
   - type: textarea
     id: resources
     attributes:
-      label: "📚 Resources & References"
-      description: "Links to relevant documentation, designs, or reference materials"
+      label: "📚 Recursos y Referencias"
+      description: "Links útiles como diseños, documentación o issues relacionados"
       placeholder: |
-        - Design mockups: [link]
-        - API documentation: [link]
-        - Related issues: #123, #456
-        - External references: [link]
-    validations:
-      required: false
+        - Mockup: [link]
+        - API Docs: [link]
+        - Issues relacionados: #123, #456
 
   - type: textarea
     id: dependencies
     attributes:
-      label: "🔗 Dependencies"
-      description: "List any blockers or dependencies for this task"
+      label: "🔗 Dependencias o Bloqueos"
+      description: "¿Esta tarea depende de otra? ¿Hay algo que la bloquee?"
       placeholder: |
-        - Blocked by: #123 (API endpoint needs to be ready)
-        - Depends on: #456 (Base component must be implemented first)
-        - External: Design approval needed
-    validations:
-      required: false
+        - Bloqueado por: #321
+        - Depende de: #654
+        - Externo: Aprobación de diseño
+
+  ## 🌍 Compatibilidad y Consideraciones
 
   - type: dropdown
     id: browsers
     attributes:
-      label: "🌐 Browser Support"
-      description: "Which browsers need to be supported?"
+      label: "🌐 Compatibilidad con Navegadores"
+      description: "¿Qué navegadores deben estar soportados?"
       multiple: true
       options:
         - Chrome
@@ -197,34 +176,29 @@ body:
         - Edge
         - Mobile Safari
         - Mobile Chrome
-        - All modern browsers
-    validations:
-      required: false
+        - Todos los navegadores modernos
 
   - type: checkboxes
     id: additional_considerations
     attributes:
-      label: "🔍 Additional Considerations"
-      description: "Check all that apply"
+      label: "🔍 Consideraciones Adicionales"
+      description: "Marca las que apliquen para esta tarea"
       options:
-        - label: "This task requires design review"
-        - label: "This task affects performance"
-        - label: "This task requires accessibility testing"
-        - label: "This task affects SEO"
-        - label: "This task requires security review"
-        - label: "This task affects mobile experience"
-        - label: "This task requires database changes"
-        - label: "This task affects API"
+        - label: "Requiere revisión de diseño"
+        - label: "Afecta el rendimiento"
+        - label: "Necesita validación de accesibilidad"
+        - label: "Afecta SEO"
+        - label: "Necesita revisión de seguridad"
+        - label: "Afecta la experiencia móvil"
+        - label: "Requiere cambios en base de datos"
+        - label: "Impacta la API"
 
   - type: textarea
     id: notes
     attributes:
-      label: "📓 Additional Notes"
-      description: "Any other information that might be helpful"
+      label: "📓 Notas Adicionales"
+      description: "Información técnica, limitaciones o sugerencias a futuro"
       placeholder: |
-        - Implementation notes
-        - Known limitations
-        - Future considerations
-        - Technical debt considerations
-    validations:
-      required: false
+        - Notas de implementación
+        - Consideraciones técnicas
+        - Deuda técnica
