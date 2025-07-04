@@ -3,15 +3,11 @@ description: Issue for a new feature, configuration, or component
 title: '📌 [Type] <Issue Title>'
 labels: ['type:setup', 'type:component', 'effort:2']
 body:
-  - type: select
+  - type: input
     id: effort
-    options:
-      - label: 1: Low
-        value: 1
-      - label: 2: Medium
-        value: 2
-      - label: 3: High
-        value: 3
+    attributes:
+      label: Effort Estimate (1: Low, 2: Medium, 3: High)
+      placeholder: 2
     validations:
       required: true
 
