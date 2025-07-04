@@ -1,6 +1,6 @@
 name: 📌 Feature Task
 description: Issue for a new feature, configuration, or component
-title: '📌 [Type] <Issue Title>'
+title: '### 📌 [Type] <Issue Title>'
 labels: ['type:setup', 'type:component', 'effort:2']
 body:
   - type: input
@@ -25,13 +25,14 @@ body:
     attributes:
       label: Subtasks
       description: Add checkboxes for subtasks to complete
-      value: |
+      placeholder: |
         - [ ] Setup initial structure
         - [ ] Write implementation
         - [ ] Add tests (if needed)
         - [ ] Document usage (Storybook or MDX)
-      render: markdown
-
+    validations:
+      required: true
+      
   - type: textarea
     id: acceptance
     attributes:
