@@ -6,8 +6,8 @@ body:
   - type: input
     id: effort
     attributes:
-      label: Effort Estimate (1: Low, 2: Medium, 3: High)
-      placeholder: 2
+      label: "Effort Estimate (1: Low, 2: Medium, 3: High)"
+      placeholder: "2"
     validations:
       required: true
 
